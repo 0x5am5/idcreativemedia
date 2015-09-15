@@ -22,14 +22,22 @@
 									<div class="col w-60">
 										<div class="pad">
 											<div class="media">
-	                                        <?php if (get_sub_field('deliverable')=='Video') : ?>
-												<iframe src="<?php the_sub_field('video_url'); ?>" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	                                        <?php if (get_sub_field('deliverable')=='Video') : ?>	  
+
+												<iframe src="http://www.youtube.com/embed/<?php the_sub_field('video_id'); ?>" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 											<?php elseif (get_sub_field('deliverable')=='Design') : ?>
+
 												<?php $imageGal = get_sub_field('image_gallery')[1]['image']; ?>
+
 												<?php if(have_rows('image_gallery')): ?>
+												
 												<?php $imageCount = 1; ?>
+													
 													<?php while(have_rows('image_gallery') ): the_row(); ?>
+													
 													<?php $image = get_sub_field('image'); ?>										
+														
 														<?php if ($imageCount==1) { ?>
 														<a href="<?php echo $imageGal['url']; ?>" data-lightbox="gallery<?php echo '-'.$row; ?>" <?php if ($imageCount!=1) { echo ' class="access" tabindex="-1"'; } ?>/>
 															<img src="<?php echo $image['url']; ?>" class="cover-image" alt="<?php echo $image['alt']; ?>"/>
@@ -39,11 +47,14 @@
 															</div>
 														</a>
 														<?php } else { ?>
+														
 															<a href="<?php echo $image['url']; ?>" data-lightbox="gallery<?php echo '-'.$row; ?>" <?php if ($imageCount!=1) { echo ' class="access" tabindex="-1"'; } ?>/></a>	
+														
 														<?php } ?>
-													<?php $imageCount++; ?>
+														<?php $imageCount++; ?>
 													<?php endwhile; ?>
 												<?php endif; ?>
+
 											<?php endif; ?>
 											</div>
 											</div>
